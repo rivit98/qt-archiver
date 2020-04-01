@@ -6,7 +6,7 @@ Simple archiver written in C++
  - QT 5.11.1
  - LZ4 compression library
 
-**Download**: [Github release](git release)
+**Download**: [Github release](https://github.com/rivit98/qt_archiver/releases)
 
 **Presentation**: [YouTube](ytlink)
 
