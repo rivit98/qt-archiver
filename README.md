@@ -8,7 +8,7 @@ Simple archiver written in C++
 
 **Download**: [Github release](https://github.com/rivit98/qt_archiver/releases)
 
-**Presentation**: [YouTube](ytlink)
+**Presentation**: [YouTube](https://www.youtube.com/watch?v=3C1qZQTDcUo)
 
 ![img1](./media/img1.png)
 ![img2](./media/img2.png)
