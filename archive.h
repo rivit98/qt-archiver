@@ -1,45 +1,55 @@
 #pragma once
 
-#include <string>
-#include <iostream>
-#include <vector>
+#include "compressor.h"
+#include "filedata.h"
 
-#include "fileData.h"
+#include <QVector>
+#include <QMap>
+#include <algorithm>
 
 
-const short magic = 0xDEAD; // magic dla mojego formatu
-const std::string ext = ".riv";
+
 class Archive
 {
-	private:
-        std::vector<FileData> listFiles;
-        std::string apath;
-        long long asize;
-        bool modified;
-	public:
-        explicit Archive();
-        Archive(const std::string & path); //load archive
-		~Archive();
-        void setPath(const std::string& p) { apath = p; }
-        const std::string & getPath() const { return apath; }
-        unsigned int getNumOfFiles() const { return listFiles.size(); }
-        void add(const std::string & filePath);
-		void save();
-        bool unpack(const std::string & filename, const std::string& folder) const;
-        const std::vector<FileData>& getFiles() const { return listFiles; }
-        bool hasPath() const { return apath.size() != 0; }
-        bool isInArchive(const std::string & name, long long size) const;
-        long long size() const { return asize; }
-        bool isModified() const { return modified; }
-        void remove(const std::string& s);
-        int unpackAll(const std::string& ) const;
+private:
+    static constexpr quint16 magic = 0xDEAD;
+    static const QString archive_extension;
+
+    QVector<FileData> fileList;
+    QString path;
+    QSharedPointer<Compressor> compressor;
+    bool newFile;
+    bool modified;
+
+
+public:
+    Archive();
+    Archive(QString& path);
+    ~Archive() = default;
+
+    qint32 getNumOfFiles() const;
+    void setPath(const QString& p);
+    void resetModified(bool m = false);
+    const QString& getPath() const;
+    bool addFile(const QString& path);
+    bool isNewArchive() const;
+    bool isModified() const;
+    bool isInArchive(const QString& filename) const;
+    bool save();
+    bool unpackFile(const QString& filename, const QString& dir) const;
+    quint32 unpackAll(const QString& dir) const;
+    const QVector<FileData>& getData() const;
+    void removeFile(const QString& filename);
+    QByteArray getUncompressedFileData(const FileData& f) const;
+
+private:
+    void read();
+    bool saveNew();
+    bool saveExisting();
 };
 
-
 /*
-first two bytes - magic 0xDEAD
-next four bytes are number of files in archive
-next - header+data
-
-
+    first two bytes - magic 0xDEAD
+    next four bytes are number of files in archive
+    next - header+data
 */

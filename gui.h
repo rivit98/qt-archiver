@@ -1,50 +1,29 @@
 #ifndef GUI_H
 #define GUI_H
 
-#include <QWidget>
+#include <QGroupBox>
 #include <QListWidget>
 #include <QPushButton>
-#include "archive.h"
-#include <QGroupBox>
 #include <QLineEdit>
-#include <QCloseEvent>
+#include <QWidget>
 #include <QLabel>
+#include <QFileDialog>
+#include <QCloseEvent>
+#include <QMimeData>
 
+#include "archive.h"
+#include "compressor.h"
 
-namespace Ui {
-class Gui;
-}
+QT_BEGIN_NAMESPACE
+namespace Ui { class Gui; }
+QT_END_NAMESPACE
 
 class Gui : public QWidget
 {
     Q_OBJECT
 
-public:
-    explicit Gui(QWidget *parent = nullptr);
-    ~Gui() override;
-    void loadFilesList();
-    void resetWindow();
-    bool addFile(QString fileName);
-
-
-private slots:
-    void on_openButton_clicked();
-    void on_addButton_clicked();
-    void on_saveButton_clicked();
-    void on_discardButton_clicked();
-    void closeEvent(QCloseEvent *event) override;
-    void dropEvent(QDropEvent * event) override;
-    void dragEnterEvent(QDragEnterEvent *e) override;
-    void on_nameTextArea_textChanged();
-    void on_newButton_clicked();
-    void on_removeButton_clicked();
-    void on_unpackButton_clicked();
-    void on_unpackAllButton_clicked();
-
-
 private:
     Ui::Gui *ui;
-    Archive* curArchive;
     QPushButton* ui_openbutton;
     QPushButton* ui_saveButton;
     QPushButton* ui_discardButton;
@@ -54,6 +33,34 @@ private:
     QGroupBox* actionBox;
     QLineEdit* inputName;
     QLabel* summaryLabel;
-};
 
+    QSharedPointer<Archive> currentArchive;
+
+private:
+    void loadFilesList();
+    void resetWindow();
+
+
+private slots:
+    void closeEvent(QCloseEvent *event) override;
+    void dropEvent(QDropEvent *event) override;
+    void dragEnterEvent(QDragEnterEvent *e) override;
+    void on_openButton_clicked();
+    void on_nameTextArea_textChanged();
+    bool on_saveButton_clicked();
+    void on_newButton_clicked();
+    void on_addButton_clicked();
+    void on_removeButton_clicked();
+    void on_unpackButton_clicked();
+    void on_unpackAllButton_clicked();
+    void on_discardButton_clicked();
+
+
+public:
+    Gui(QWidget *parent = nullptr);
+    ~Gui() override;
+    bool addFile(QString fileName);
+
+
+};
 #endif // GUI_H

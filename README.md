@@ -1,12 +1,15 @@
-# qt_archiver
-Simple archiver written in c++
+# Archiver
+Simple archiver written in C++
 
-Used:
-- QT
-- lz4 compression algorithm
+#### Used:
+ - C++
+ - QT 5.11.1
+ - LZ4 compression library
 
-![img1](media/img1.PNG?raw=true "img1")
-![img2](media/img2.PNG?raw=true "img2")
+**Download**: [Github release](git release)
+**Presentation**: [YouTube](ytlink)
 
+![img1](./media/img1.png)
+![img2](./media/img2.png)
+![img3](./media/img3.png)
 
-Compiled version: https://drive.google.com/open?id=1pECNdEdU14P7zMhdWEsGV4FFtD2CLeE5

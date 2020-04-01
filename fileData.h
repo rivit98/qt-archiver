@@ -1,32 +1,36 @@
 #pragma once
 
-#include <string>
-#include "util.h"
-#include <fstream>
+#include <QString>
+#include <QFileInfo>
+#include <QFile>
+#include <QMessageBox>
 
 class FileData
 {
-private:
-    std::string filename;
-	char * data;
-    unsigned int dataLen;
-    unsigned int offset;
-    int uncompressedLen;
+    QString path;
+    QString filename;
+    quint32 offset;
+    quint32 compressedSize;
+
 public:
-	FileData();
-    FileData(std::string path);
-    FileData(const FileData & f);
-	~FileData();
-	char * getDataPointer() const {return data;}
-    unsigned int getOffset() const {return offset;}
-    unsigned int getDataLength() const {return dataLen;}
-    unsigned int getRealDataLen() const {return uncompressedLen;}
-    const std::string getFilename() const {return filename;}
-    void setOffset(unsigned int o) {offset = o;}
-	char * allocMemory();
-	FileData & operator=(const FileData & f);
-	int getSizeOfAllDatas() const;
-    bool saveFile(const std::string& folder) const;
-    friend std::fstream & operator<< ( std::fstream & fs, const FileData & d );
-    friend std::fstream & operator>> ( std::fstream & fs, FileData & d );
+    FileData();
+    FileData(const QString& path);
+    ~FileData() = default;
+
+    QString getPath() const;
+    QString getFilename() const;
+    quint32 getOffset() const;
+    quint32 getCompressedSize() const;
+    void setCompressedSize(quint32 c);
+    void setOffset(quint32 o);
+
+    QByteArray getContents() const;
+    bool saveToFile(const QByteArray& data, const QString& path) const;
+    qint64 getSizeofInternals() const;
+    void readData(QDataStream& os);
+
+    bool operator==(const FileData& rhs);
 };
+
+inline bool operator<(const FileData& lhs, const FileData& rhs);
+inline uint qHash(const FileData& key);

@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>780</width>
+    <width>726</width>
     <height>464</height>
    </rect>
   </property>
@@ -79,7 +79,7 @@
     <rect>
      <x>330</x>
      <y>20</y>
-     <width>431</width>
+     <width>381</width>
      <height>421</height>
     </rect>
    </property>
@@ -124,19 +124,6 @@
     <string>List of files:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_5">
-   <property name="geometry">
-    <rect>
-     <x>730</x>
-     <y>0</y>
-     <width>121</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>by Rivit</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="openButton">
    <property name="enabled">
     <bool>true</bool>
@@ -164,7 +151,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>330</y>
+     <y>320</y>
      <width>281</width>
      <height>121</height>
     </rect>
@@ -217,8 +204,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Close archive
-without saving</string>
+     <string>Close without saving</string>
     </property>
    </widget>
   </widget>
@@ -229,7 +215,7 @@ without saving</string>
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>180</y>
+     <y>170</y>
      <width>281</width>
      <height>141</height>
     </rect>
@@ -250,8 +236,7 @@ without saving</string>
      </rect>
     </property>
     <property name="text">
-     <string>Add
-file</string>
+     <string>Add files</string>
     </property>
    </widget>
    <widget class="QPushButton" name="removeButton">
@@ -267,8 +252,7 @@ file</string>
      </rect>
     </property>
     <property name="text">
-     <string>Remove
-selected files</string>
+     <string>Remove selected</string>
     </property>
    </widget>
    <widget class="QPushButton" name="unpackButton">
@@ -284,8 +268,7 @@ selected files</string>
      </rect>
     </property>
     <property name="text">
-     <string>Unpack
-selected files</string>
+     <string>Unpack selected</string>
     </property>
    </widget>
    <widget class="QPushButton" name="unpackAllButton">
@@ -301,8 +284,7 @@ selected files</string>
      </rect>
     </property>
     <property name="text">
-     <string>Unpack all
-files</string>
+     <string>Unpack all</string>
     </property>
    </widget>
   </widget>
@@ -311,7 +293,7 @@ files</string>
     <rect>
      <x>330</x>
      <y>440</y>
-     <width>61</width>
+     <width>71</width>
      <height>21</height>
     </rect>
    </property>
@@ -329,7 +311,7 @@ files</string>
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;0 files | Real size: 0 (0 packed) | Saved: 0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;0 files | Packed size: 0B&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <zorder>groupBox_2</zorder>
@@ -338,7 +320,6 @@ files</string>
   <zorder>label</zorder>
   <zorder>listFiles</zorder>
   <zorder>label_4</zorder>
-  <zorder>label_5</zorder>
   <zorder>openButton</zorder>
   <zorder>label_3</zorder>
   <zorder>summaryLabel</zorder>
