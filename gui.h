@@ -1,18 +1,16 @@
-#ifndef GUI_H
-#define GUI_H
+#pragma once
 
-#include <QGroupBox>
 #include <QListWidget>
 #include <QPushButton>
-#include <QLineEdit>
 #include <QWidget>
 #include <QLabel>
 #include <QFileDialog>
 #include <QCloseEvent>
 #include <QMimeData>
+#include <QDateTime>
 
 #include "archive.h"
-#include "compressor.h"
+#include "lzma4_compressor.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Gui; }
@@ -27,11 +25,7 @@ private:
     QPushButton* ui_openbutton;
     QPushButton* ui_saveButton;
     QPushButton* ui_discardButton;
-    QPushButton* ui_newButton;
     QListWidget* fileList;
-    QGroupBox* box;
-    QGroupBox* actionBox;
-    QLineEdit* inputName;
     QLabel* summaryLabel;
 
     QSharedPointer<Archive> currentArchive;
@@ -39,6 +33,7 @@ private:
 private:
     void loadFilesList();
     void resetWindow();
+    bool checkIfArchiveContainsFiles();
 
 
 private slots:
@@ -46,7 +41,6 @@ private slots:
     void dropEvent(QDropEvent *event) override;
     void dragEnterEvent(QDragEnterEvent *e) override;
     void on_openButton_clicked();
-    void on_nameTextArea_textChanged();
     bool on_saveButton_clicked();
     void on_newButton_clicked();
     void on_addButton_clicked();
@@ -60,7 +54,4 @@ public:
     Gui(QWidget *parent = nullptr);
     ~Gui() override;
     bool addFile(QString fileName);
-
-
 };
-#endif // GUI_H

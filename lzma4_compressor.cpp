@@ -1,8 +1,8 @@
-#include "compressor.h"
+#include "lzma4_compressor.h"
 
-const int Compressor::LZ4_BLOCKSIZE;
+const qint32 LZMA4_Compressor::LZ4_BLOCKSIZE;
 
-QByteArray Compressor::compress(const FileData& f) const
+QByteArray LZMA4_Compressor::compress(const FileData& f) const
 {
     QFile file(f.getPath());
     file.open(QIODevice::ReadOnly);
@@ -34,7 +34,7 @@ QByteArray Compressor::compress(const FileData& f) const
         }
     };
 
-    QByteArray ret;
+    QByteArray ret; //TODO: this really should be split into chunks
     int rsvsize = LZ4_compressBound(nbytes);
     if (rsvsize < 1) {
         return ret;
@@ -47,7 +47,7 @@ QByteArray Compressor::compress(const FileData& f) const
     int readlen = 0;
 
     while (readlen < nbytes) {
-        int datalen = qMin(nbytes - readlen, Compressor::LZ4_BLOCKSIZE);
+        int datalen = qMin(nbytes - readlen, LZMA4_Compressor::LZ4_BLOCKSIZE);
         compress(data + readlen, datalen, buffer);
         readlen += datalen;
 
@@ -63,7 +63,7 @@ QByteArray Compressor::compress(const FileData& f) const
     return ret;
 }
 
-QByteArray Compressor::uncompress(QByteArray& compressed) const{
+QByteArray LZMA4_Compressor::uncompress(QByteArray& compressed) const{
     char *data = compressed.data();
     int nbytes = compressed.size();
     QByteArray ret;

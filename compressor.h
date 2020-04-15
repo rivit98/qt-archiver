@@ -1,11 +1,14 @@
-#ifndef COMPRESSORAPI_H
-#define COMPRESSORAPI_H
+#pragma once
 
+#include <QBuffer>
 
-class CompressorAPI
+#include "fileData.h"
+
+class Compressor
 {
 public:
-    CompressorAPI();
+    Compressor() = default;
+    virtual ~Compressor() = default;
+    virtual QByteArray compress(const FileData& f) const = 0;
+    virtual QByteArray uncompress(QByteArray& compressed) const = 0;
 };
-
-#endif // COMPRESSORAPI_H

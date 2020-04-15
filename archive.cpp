@@ -1,9 +1,7 @@
 #include "archive.h"
 
-const QString archive_extension = QString(".riv");
-
 Archive::Archive() :
-    compressor(new Compressor()),
+    compressor(new LZMA4_Compressor()),
     newFile(true),
     modified(false){
 
@@ -42,7 +40,11 @@ qint32 Archive::getNumOfFiles() const{
     return fileList.size();
 }
 
-const QVector<FileData>& Archive::getData() const{
+bool Archive::isEmpty() const{
+    return getNumOfFiles() == 0;
+}
+
+const QVector<FileData>& Archive::getFiles() const{
     return fileList;
 }
 
@@ -100,10 +102,10 @@ bool Archive::saveExisting(){
         return false;
     }
 
-    quint32 startOffset = sizeof(magic) + sizeof(fileList.size());
+    quint32 startOffset = sizeof(Archive::magic) + sizeof(fileList.size());
     QDataStream out(&tempArchive);
     out.setByteOrder(QDataStream::LittleEndian);
-    out << magic;
+    out << Archive::magic;
     out << fileList.size();
     out.device()->seek(startOffset + headerSize);
 

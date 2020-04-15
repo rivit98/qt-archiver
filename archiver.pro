@@ -17,8 +17,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     archive.cpp \
-    compressor.cpp \
     filedata.cpp \
+    lzma4_compressor.cpp \
     main.cpp \
     gui.cpp
 
@@ -26,7 +26,8 @@ HEADERS += \
     archive.h \
     compressor.h \
     filedata.h \
-    gui.h
+    gui.h \
+    lzma4_compressor.h
 
 FORMS += \
     gui.ui

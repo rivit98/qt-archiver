@@ -9,14 +9,26 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>726</width>
-    <height>464</height>
+    <width>703</width>
+    <height>416</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="minimumSize">
    <size>
-    <width>495</width>
-    <height>397</height>
+    <width>703</width>
+    <height>416</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>703</width>
+    <height>416</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -35,52 +47,13 @@
     <string>Archive:</string>
    </property>
   </widget>
-  <widget class="QGroupBox" name="groupBox">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>80</y>
-     <width>281</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>New archive</string>
-   </property>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>20</y>
-      <width>161</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Input name of new archive:</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="nameTextArea">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>40</y>
-      <width>261</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="maxLength">
-     <number>32</number>
-    </property>
-   </widget>
-  </widget>
   <widget class="QListWidget" name="listFiles">
    <property name="geometry">
     <rect>
-     <x>330</x>
+     <x>340</x>
      <y>20</y>
-     <width>381</width>
-     <height>421</height>
+     <width>351</width>
+     <height>361</height>
     </rect>
    </property>
    <property name="contextMenuPolicy">
@@ -114,7 +87,7 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>330</x>
+     <x>340</x>
      <y>0</y>
      <width>81</width>
      <height>20</height>
@@ -132,13 +105,13 @@
     <rect>
      <x>10</x>
      <y>30</y>
-     <width>281</width>
+     <width>311</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <pointsize>10</pointsize>
      <weight>75</weight>
      <bold>true</bold>
     </font>
@@ -147,13 +120,13 @@
     <string>Open archive</string>
    </property>
   </widget>
-  <widget class="QGroupBox" name="groupBox_2">
+  <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>320</y>
-     <width>281</width>
-     <height>121</height>
+     <y>280</y>
+     <width>311</width>
+     <height>91</height>
     </rect>
    </property>
    <property name="title">
@@ -166,29 +139,13 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>60</y>
-      <width>111</width>
+      <y>30</y>
+      <width>141</width>
       <height>51</height>
      </rect>
     </property>
     <property name="text">
      <string>Save archive</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="newButton">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>10</y>
-      <width>131</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>New</string>
     </property>
    </widget>
    <widget class="QPushButton" name="discardButton">
@@ -197,9 +154,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>60</y>
-      <width>131</width>
+      <x>160</x>
+      <y>30</y>
+      <width>141</width>
       <height>51</height>
      </rect>
     </property>
@@ -215,8 +172,8 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>170</y>
-     <width>281</width>
+     <y>120</y>
+     <width>311</width>
      <height>141</height>
     </rect>
    </property>
@@ -231,7 +188,7 @@
      <rect>
       <x>10</x>
       <y>20</y>
-      <width>121</width>
+      <width>141</width>
       <height>51</height>
      </rect>
     </property>
@@ -245,9 +202,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>160</x>
       <y>20</y>
-      <width>121</width>
+      <width>141</width>
       <height>51</height>
      </rect>
     </property>
@@ -263,7 +220,7 @@
      <rect>
       <x>10</x>
       <y>80</y>
-      <width>121</width>
+      <width>141</width>
       <height>51</height>
      </rect>
     </property>
@@ -277,9 +234,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>160</x>
       <y>80</y>
-      <width>121</width>
+      <width>141</width>
       <height>51</height>
      </rect>
     </property>
@@ -292,7 +249,7 @@
    <property name="geometry">
     <rect>
      <x>330</x>
-     <y>440</y>
+     <y>390</y>
      <width>71</width>
      <height>21</height>
     </rect>
@@ -305,7 +262,7 @@
    <property name="geometry">
     <rect>
      <x>400</x>
-     <y>440</y>
+     <y>390</y>
      <width>361</width>
      <height>21</height>
     </rect>
@@ -314,9 +271,8 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;0 files | Packed size: 0B&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <zorder>groupBox_2</zorder>
-  <zorder>actionBox</zorder>
   <zorder>groupBox</zorder>
+  <zorder>actionBox</zorder>
   <zorder>label</zorder>
   <zorder>listFiles</zorder>
   <zorder>label_4</zorder>

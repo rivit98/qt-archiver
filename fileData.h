@@ -7,10 +7,14 @@
 
 class FileData
 {
+private:
     QString path;
     QString filename;
     quint32 offset;
     quint32 compressedSize;
+
+private:
+    void normalizeFileName();
 
 public:
     FileData();
@@ -21,15 +25,16 @@ public:
     QString getFilename() const;
     quint32 getOffset() const;
     quint32 getCompressedSize() const;
+    qint64 getSizeofInternals() const;
     void setCompressedSize(quint32 c);
     void setOffset(quint32 o);
 
     QByteArray getContents() const;
     bool saveToFile(const QByteArray& data, const QString& path) const;
-    qint64 getSizeofInternals() const;
     void readData(QDataStream& os);
 
     bool operator==(const FileData& rhs);
+
 };
 
 inline bool operator<(const FileData& lhs, const FileData& rhs);

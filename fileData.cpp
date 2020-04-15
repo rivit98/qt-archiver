@@ -14,8 +14,18 @@ FileData::FileData(const QString &path){
         this->filename = fileInfo.fileName();
         this->offset = 0;
         this->compressedSize = 0;
+        normalizeFileName();
     }else{
         throw std::invalid_argument("File " + path.toStdString() + "does not exists");
+    }
+}
+
+void FileData::normalizeFileName(){
+    //just replace not ascii characters
+    for(qint32 i = 0; i < filename.size(); i++){
+        if(filename[i] > 127){
+            filename[i] = '_';
+        }
     }
 }
 
