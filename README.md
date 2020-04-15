@@ -14,3 +14,6 @@ Simple archiver written in C++
 ![img2](./media/img2.png)
 ![img3](./media/img3.png)
 
+#### TODO:
+* compressing big files
+* folder compressing support
