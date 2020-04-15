@@ -55,11 +55,9 @@ void Gui::loadFilesList(){
     fileList->clear();
 
     quint64 comp = 0;
-    quint64 indexer = 0;
     QString buffer;
     for(auto& item : currentArchive->getFiles()){
-        buffer = (QString::number(++indexer) + ")").leftJustified(6);
-        buffer += item.getFilename();
+        buffer = item.getFilename();
         buffer += " (";
         if(item.getCompressedSize() == 0){
             buffer += "uncompressed yet";
@@ -205,9 +203,8 @@ void Gui::on_removeButton_clicked(){
     }
 
     QString buffer;
-    QRegularExpression re("^\\d\\) (.*) \\(");
+    QRegularExpression re("^(.*) \\(");
     for(QList<QListWidgetItem*>::iterator s = selected.begin(); s != selected.end(); s++){
-        buffer.clear();
         buffer = (*s)->text();
         QRegularExpressionMatch match = re.match(buffer);
         if(match.hasMatch()){
@@ -247,10 +244,9 @@ void Gui::on_unpackButton_clicked(){
     }
 
     QString buffer;
-    QRegularExpression re("^\\d+\\)[ ]* (.*) \\(");
+    QRegularExpression re("^(.*) \\(");
     quint32 unpacked = 0;
     for(QList<QListWidgetItem*>::iterator s = selected.begin(); s != selected.end(); s++){
-        buffer.clear();
         buffer = (*s)->text();
         QRegularExpressionMatch match = re.match(buffer);
         if(match.hasMatch()){
