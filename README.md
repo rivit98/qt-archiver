@@ -3,8 +3,8 @@ Simple archiver written in C++
 
 #### Used:
  - C++
- - QT 5.11.1
- - LZ4 compression library
+ - [QT](https://www.qt.io/) 5.11.1
+ - [LZ4](https://github.com/lz4/lz4) compression library
 
 **Download**: [Github release](https://github.com/rivit98/qt_archiver/releases)
 
