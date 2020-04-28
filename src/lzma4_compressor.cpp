@@ -34,7 +34,7 @@ QByteArray LZMA4_Compressor::compress(const FileData& f) const
         }
     };
 
-    QByteArray ret; //TODO: this really should be split into chunks
+    QByteArray ret; //TODO: this really should be splitted into chunks
     int rsvsize = LZ4_compressBound(nbytes);
     if (rsvsize < 1) {
         return ret;

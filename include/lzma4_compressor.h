@@ -2,7 +2,7 @@
 
 #include <QBuffer>
 
-#include "lz4_win32_v1_9_2/include/lz4.h"
+#include "lz4_win32_v1_9_2/lz4.h"
 #include "fileData.h"
 #include "compressor.h"
 

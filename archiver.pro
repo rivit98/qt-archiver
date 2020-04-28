@@ -1,6 +1,5 @@
-QT       += core gui
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT += core gui
+QT += widgets
 
 RC_ICONS = icon.ico
 
@@ -17,28 +16,36 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-SOURCES += \
-    archive.cpp \
-    filedata.cpp \
-    lzma4_compressor.cpp \
-    main.cpp \
-    gui.cpp
+@TEMPLATE = SUBDIRS
+CONFIG += ordered
+SUBDIRS += src/
+INCLUDEPATH += include/
 
-HEADERS += \
-    archive.h \
-    compressor.h \
-    filedata.h \
-    gui.h \
-    lzma4_compressor.h
 
 FORMS += \
-    gui.ui
+	forms/gui.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-win32: LIBS += -L$$PWD/lz4_win32_v1_9_2/static/ -lliblz4_static
-INCLUDEPATH += "$$PWD\lz4_win32_v1_9_2\include"
-DEPENDPATH += $$PWD/lz4_win32_v1_9_2/dll
+win32: LIBS += -L$$PWD/lib/static/ -lliblz4_static
+DEPENDPATH += $$PWD/lib/dll
+
+HEADERS += \
+	include/archive.h \
+	include/compressor.h \
+	include/fileData.h \
+	include/gui.h \
+	include/lz4_win32_v1_9_2/lz4.h \
+	include/lz4_win32_v1_9_2/lz4frame.h \
+	include/lz4_win32_v1_9_2/lz4hc.h \
+	include/lzma4_compressor.h
+
+SOURCES += \
+	src/archive.cpp \
+	src/fileData.cpp \
+	src/gui.cpp \
+	src/lzma4_compressor.cpp \
+	src/main.cpp
